@@ -1,5 +1,5 @@
 # learnwy
 # tadd branch
-git branch <name>
+git branch \<name\>
 # switch branch
-git checkout <name>
+git checkout \<name\>
