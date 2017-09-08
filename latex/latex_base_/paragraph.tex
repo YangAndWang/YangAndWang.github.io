@@ -1,0 +1,50 @@
+\documentclass{article}
+% article book report 
+
+% first use latex , will gen *.(aux|dvi|log)
+% then xdvi *.dvi ,gen pdf
+
+% % 是注释的开始 行注释
+\begin{document}
+
+We hava seen that to typeset something in \LaTeX ,we type in text to be typeset together with some \LaTeX\   commands.
+Words must be sparated by spaces (does not mater how many) and line maybe broken arbitrarily.
+
+The end of a paragraph is specified by a \emph{blank line} in the input.In other words,whenever you want to start a new paragraph, juset leave a blank line and proceed.
+
+\section{blank space}
+% 当最后一个字符不是大写字符时,句号应该加上@变为@.
+% 说明书上说最后一个字符不是大写需要加上@ 但是在我的工作环境下很好
+Carrots are good for your eyes, since they contain Vitamin A. Have you ever seen a rabbit wearing glasses?
+
+Carrots are good for your eyes, since they contain Vitamin A\@. Have you ever seen a rabbit wearing glasses?
+
+The numbers 1, 2, 3, etc.\ are called natural numbers. According to Kronecker, they were made by God;all else being the works of Man.
+
+The numbers 1, 2, 3, etc. are called natural numbers. According to Kronecker, they were made by God;all else being the works of Man.
+
+%空格需要转义
+
+% 一个段落过后应该是一个空行
+
+\section{Quotes} %引号
+% 使用 \lq \rq 表示左引号和右引号
+% 在 命令后的空格确实需要转义空格,不然会识别为命令和文本之间的分隔符
+\lq Wang Yang\rq\ is my name.\\
+double lq is \lq\lq,and the right quotes is the same.
+\section{dashes}
+% 虚线
+X-rays are discussed in pages 221--225 of Volume 3---the volume on electromagnetic waves.
+
+\section{Accents}
+
+% 音标  \''o 出问题了，打不出来 ''‘’
+\`o \=o \u o \b o \'o \.o \v o \t oo \^o \''o \H o \~o \c c \d o
+
+
+\'{E}l est\'{a} aqu\'{\i}
+
+\oe\ \aa\ \o\ \ss\ !`\ \OE\ \AA\ \O\ ?` \ae\ \l\ \AE\ \L
+
+
+\end{document}
