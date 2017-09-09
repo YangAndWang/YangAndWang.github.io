@@ -1,0 +1,165 @@
+\documentclass{article}
+
+% 中文
+\usepackage[UTF8]{ctex}
+% 自动缩进
+\usepackage{indentfirst}
+% 支持跳转,标题的超链接
+%\usepackage{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+
+% begin end环境
+% flushleft:环境中的内容居左。
+% flushright:环境中的内容居右。
+% center:环境中的内容居中。
+% itemize:无编号列表
+% enumerate:有编号列表
+% description:带描述列表
+% quote:引用，使得整段缩进
+% verse:诗歌专用，\\可以断行，两个空行的分段则生成一个空行。
+% begin end 环境
+
+\begin{document}
+\title{angular学习}
+\author{汪洋}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\section{Structural Directives}
+
+
+\subsection{*ngIf}
+
+
+$<$div *ngIf="hero"$>$\{\{hero.name\}\}$<$/div$>$
+
+是一个语法糖,将被翻译成
+
+\par $<$div template="ngIf hero"$>$\{\{hero.name\}\}$<$/div$>$
+
+\par 接下来会生成
+
+\par $<$ng-template $[$ngIf$]$="hero"$>$
+\par\ \ $<$div$>$\{\{hero.name\}\}$<$/div$>$
+\par $<$/ng-template$>$
+
+
+\subsection{*ngFor}
+
+$<$div *ngFor="let hero of heroes;let i = index;let odd=odd;trackBy: trackById" $[$class.odd$]$="odd"$>$
+\par \{\{hero.name\}\}
+\par $<$/div$>$
+\par 将被翻译成\\
+$<$div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById" $[$class.odd$]$="odd"$>$
+\par  (\{\{i\}\}) \{\{hero.name\}\}\\
+$<$/div$>$
+\par 将生成\\
+$<$ng-template ngFor let-hero $[$ngForOf$]$="heroes" let-i="index" let-odd="odd" $[$ngForTrackBy$]$="trackById"$>$
+\par  $<$div $[$class.odd$]$="odd"$>$(\{\{i\}\}) \{\{hero.name\}\}$<$/div$>$\\
+$<$/ng-template$>$
+
+
+\par *ngFor 有几个内置的变量\ index odd \$implicit
+\par 上面的hero由于没有值,所以使用\$implicit初始化了
+\par 在*ngFor中声明的变量只存在于每个重复的实例中,在其他位置仍然可以声明相同名称的变量
+\par 其他的几个内置的结构指令和*ngFor,*ngIf的展开方式一样
+
+\subsection{ngSwitch}
+
+ngSwitch 本省并不是一个结构指令,它只是给*ngSwitchCase提供一个值.
+
+
+$<$div $[$ngSwitch$]$=hero?.emotion$>$  
+\par $<$happy--hero *ngSwitchCase=happy $[$hero$]$=hero$>$$<$/happy--hero$>$
+\par $<$sad--hero *ngSwitchCase=sad $[$hero$]$=hero$>$$<$/sad--hero$>$  
+\par $<$confused--hero *ngSwitchCase=confused $[$hero$]$=hero$>$$<$/confused--hero$>$
+\par $<$unknown--hero *ngSwitchDefault $[$hero$]$=hero$>$$<$/unknown--hero$>$
+\par $<$/div$>$
+
+将被翻译成
+
+$<$div $[$ngSwitch$]$="hero?.emotion"$>$
+\par $<$happy--hero template="ngSwitchCase 'happy'" $[$hero$]$="hero"$>$$<$/happy--hero$>$ 
+\par $<$sad--hero template="ngSwitchCase 'sad'" $[$hero$]$="hero"$>$$<$/sad--hero$>$ 
+\par $<$confused--hero template="ngSwitchCase 'confused'" $[$hero$]$="hero"$>$$<$/confused--hero$>$
+\par $<$unknown--hero template="ngSwitchDefault" $[$hero$]$="hero"$>$$<$/unknown--hero$>$
+\par $<$/div$>$
+
+将生成
+
+$<$div $[$ngSwitch$]$="hero?.emotion"$>$ 
+\par $<$ng--template $[$ngSwitchCase$]$="'happy'"$>$ 
+\par $<$happy--hero $[$hero$]$="hero"$>$$<$/happy--hero$>$ 
+\par $<$/ng--template$>$  
+\par $<$ng--template $[$ngSwitchCase$]$="'sad'"$>$ 
+\par $<$sad--hero $[$hero$]$="hero"$>$$<$/sad--hero$>$
+\par $<$/ng--template$>$
+\par $<$ng--template $[$ngSwitchCase$]$="'confused'"$>$
+\par $<$confused--hero $[$hero$]$="hero"$>$$<$/confused--hero$>$ 
+\par $<$/ng--template $>$
+\par $<$ng--template ngSwitchDefault$>$ 
+\par $<$unknown--hero $[$hero$]$="hero"$>$$<$/unknown--hero$>$
+\par $<$/ng--template$>$$<$/div$>$
+
+
+\subsection{自定义结构指令}
+
+\begin{enumerate}
+
+	\item 构造函数有2个注入的参数
+		\begin{enumerate}
+			\item TemplateRef
+			\item ViewContainerRef
+		\end{enumerate}
+	\item enumerate
+
+\end{enumerate}
+
+\subsection{注意}
+
+angular 不允许同时在同一个元素中使用 多个结构指令
+
+ng-template是angular内建的元素,如果它不与angular的指令配合使用的话,将被angular从Dom节点中移除
+
+ng-container是angular内建的元素,但是与ng-template不同的是,它相当于一个语句块,本身不会显示出来,但是内部的其他符合\emph{结构指令}条件的元素会显示出来 
+
+
+\section{Pipes}
+
+管道使用$|$来标志
+
+angular本身提供了全局的管道
+
+DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, PercentPipe
+
+\subsection{参数}
+管道使用colon:来接受参数,如果有多个参数,则使用多个:
+\par $|$date:'MM/dd/yy'
+\par $|$slice:1:5
+
+\subsection{Chaining pipes,管道链}
+
+\subsection{自定义管道}
+\begin{enumerate}
+	\item 使用@Pipe,有一个name属性,以后可能会有pure属性
+	\item 继承PipeTransform,transform方法至少一个参数value,然后是额外的参数
+\end{enumerate}
+
+\subsection{注意}
+\begin{enumerate}
+	\item 使用管道是昂贵的.每一次键盘事件,鼠标移动,时钟滴答,以及服务器响应后都会执行一次脏检查.
+\end{enumerate}
+\section{零碎}
+\subsection{ngModal}
+\begin{enumerate}
+\item 必须引入FormsModule
+\end{enumerate}
+\end{document}
+
+
+
