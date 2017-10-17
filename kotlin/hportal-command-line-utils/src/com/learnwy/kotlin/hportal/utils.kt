@@ -113,7 +113,7 @@ var portletTemplateJs = "(function () {\n" +
         "    // return news;\n" +
         "})();\n" +
         ""
-var portletContentModalTemplateCss = ".templateCss-modal{\n" +
+var portletContentModalTemplateCss = ".templateCss{\n" +
         "    \n" +
         "}";
 var portletContentModalTemplateJs = "(function () {\n" +
@@ -168,10 +168,31 @@ fun genPortlet(name: String) {
     var modalJs: File = File("resources/webapp/resources/portlet/${fileName}/js/${contentModal}.js");
     var modalCss: File = File("resources/webapp/resources/portlet/${fileName}/css/${contentModal}.css");
     var modalHtml: File = File("resources/webapp/WEB-INF/view/portlet/modal/${contentModal}.html");
-    if (createIfUnExists(arrayOf(css, js, html, modalCss, modalJs, modalHtml))) {
+    if (true && createIfUnExists(arrayOf(css, js, html, modalCss, modalJs, modalHtml))) {
         var cssChannel: FileChannel = FileOutputStream(css).channel;
-        cssChannel.write(ByteBuffer.wrap(portletTemplateCss.replace("template", fileName).replace("templateCss", template).toByteArray()));
+        cssChannel.write(ByteBuffer.wrap(portletTemplateCss.replace("templateCss", template).replace("template", fileName).toByteArray()));
         cssChannel.force(true);
+        cssChannel.close();
+        var jsChannel: FileChannel = FileOutputStream(js).channel;
+        jsChannel.write(ByteBuffer.wrap(portletTemplateJs.replace("templateCss", template).replace("template", fileName).toByteArray()));
+        jsChannel.force(true);
+        jsChannel.close();
+        var htmlChannel: FileChannel = FileOutputStream(html).channel;
+        htmlChannel.write(ByteBuffer.wrap(TEMPLATE_HTML.replace("templateCss", template).replace("template", fileName).toByteArray()));
+        htmlChannel.force(true);
+        htmlChannel.close();
+        var modalHtmlChannel: FileChannel = FileOutputStream(modalHtml).channel;
+        modalHtmlChannel.write(ByteBuffer.wrap(TEMPLATE_HTML.replace("templateCss", contentModalCss).replace("template", contentModal).toByteArray()));
+        modalHtmlChannel.force(true);
+        modalHtmlChannel.close();
+        var modalCssChannel: FileChannel = FileOutputStream(modalCss).channel;
+        modalCssChannel.write(ByteBuffer.wrap(portletContentModalTemplateCss.replace("templateCss", contentModalCss).replace("template", contentModal).toByteArray()));
+        modalCssChannel.force(true);
+        modalCssChannel.close();
+        var modalJsChannel: FileChannel = FileOutputStream(modalJs).channel;
+        modalJsChannel.write(ByteBuffer.wrap(portletContentModalTemplateJs.replace("templateCss", contentModalCss).replace("template", contentModal).toByteArray()));
+        modalJsChannel.force(true);
+        modalJsChannel.close();
 
     } else {
         error("组件${fileName}之前已经存在,请手动删除再生成");
