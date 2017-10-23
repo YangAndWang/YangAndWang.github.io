@@ -1,0 +1,79 @@
+ 
+\documentclass{article} 
+
+% 中文
+% \usepackage[UTF8]{ctex}
+% 自动缩进
+\usepackage{indentfirst}
+% 支持跳转,标题的超链接
+% \usepackage{hyperref}
+% 需要加上 使用的 pdf转化器
+% http://blog.sina.com.cn/s/blog_7e3e55220100xgnt.html
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue]{hyperref}
+
+
+% begin end环境
+% flushleft:环境中的内容居左。
+% flushright:环境中的内容居右。
+% center:环境中的内容居中。
+% itemize:无编号列表
+% enumerate:有编号列表
+% description:带描述列表
+% quote:引用，使得整段缩进
+% verse:诗歌专用，\\可以断行，两个空行的分段则生成一个空行。
+% begin end 环境
+
+\begin{document}
+\title{kotlin }
+\author{wy}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage 
+
+\section{keyword}
+    \subsection{as}
+         \begin{enumerate}
+            \item as Type  convert variable to Other Type  
+            \item as Name  alias otherName for import
+         \end{enumerate}
+    \subsection{as? Type}
+         \begin{enumerate}
+            \item as  convert variable to Other Type?  
+         \end{enumerate}
+    \subsection{by}
+         \begin{enumerate}
+             \item let the impl of interface delegate to anothor object
+             \item delegate set/get value for var,or get value for val.\\
+                 operator fun setValue(thisRef:Any$?$,property: KProperty$<$*$>$)\\
+                 operator fun getValue(thisRef:Any$?$,property: KProperty$<$*$>$)   
+         \end{enumerate}
+    \subsection{delegate user agent}
+    
+    \subsection{dynamic} 
+         \begin{enumerate}
+             \item off kotlin type check for target JS
+             \item use JS dynamic type
+         \end{enumerate}
+\newpage
+\section{doc}
+    \subsection{fun call}
+         \begin{enumerate}
+            \item fun a(a:Int=1,b:Int){}, can be call by named param,i.e. a(b=2);
+            \item named param should place after general param
+         \end{enumerate}
+    \subsection{fun override}
+         \begin{enumerate}
+             \item use keyword override, override fun b(){}
+             \item the default param's value will be the base fun's default value
+         \end{enumerate}
+    \subsection{var val}
+         \subsubsection{var}
+            declare mutable variable
+         \subsubsection{val}
+            declare read-only variable
+    \subsection{switch,when}
+         
+
+\end{document}
