@@ -4,10 +4,18 @@
 \contentsline {subsection}{\numberline {1.3}by}{3}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}delegate user agent}{3}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}dynamic}{3}{subsection.1.5}
-\contentsline {section}{\numberline {2}doc}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}fun call}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}fun override}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}var val}{4}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}var}{4}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}val}{4}{subsubsection.2.3.2}
-\contentsline {subsection}{\numberline {2.4}switch,when}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {1.6}get,set}{3}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}where}{3}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}open,final}{3}{subsection.1.8}
+\contentsline {subsection}{\numberline {1.9}infix}{3}{subsection.1.9}
+\contentsline {subsection}{\numberline {1.10}inner}{4}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.11}private,protected,internal,public}{4}{subsection.1.11}
+\contentsline {subsubsection}{\numberline {1.11.1}in top-level in file}{4}{subsubsection.1.11.1}
+\contentsline {subsubsection}{\numberline {1.11.2}in class,interface}{4}{subsubsection.1.11.2}
+\contentsline {section}{\numberline {2}doc}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}fun call}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}fun override}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}var val}{5}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}var}{5}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}val}{5}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}switch,when}{5}{subsection.2.4}

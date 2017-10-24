@@ -20,8 +20,8 @@ while [ 1 -eq 1 ];do
       lastM=$nowM #`stat --format=%Y $1`
       #echo "$lastM $nowM"
       # 为了产生目录
-      latex $name && xdvipdfmx $name 
-      latex $name && xdvipdfmx $name 
+      latex $name && dvipdfmx $name 
+      latex $name && dvipdfmx $name 
   fi
   sleep 5;  
 done

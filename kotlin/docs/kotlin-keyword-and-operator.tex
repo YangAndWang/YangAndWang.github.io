@@ -56,6 +56,53 @@
              \item off kotlin type check for target JS
              \item use JS dynamic type
          \end{enumerate}
+
+    \subsection{get,set}
+         \begin{enumerate}
+             \item get , var/val v : Type get() = v
+             \item set , var v: Type set(value){ v = value;}, can't init
+         \end{enumerate}
+    \subsection{where}
+         \begin{enumerate}
+             \item genericity must have ability;
+         \end{enumerate}
+    \subsection{open,final}
+         \begin{enumerate}
+             \item final ,can't inherit
+             \item open , opposite of Java's finalss
+         \end{enumerate}
+    \subsection{infix}
+         \begin{enumerate}
+             \item one method hava only one parameter
+             \item marked as infix
+             \item require last two,you can call it by | type fun param |
+         \end{enumerate}
+    \subsection{inner}
+         \begin{enumerate}
+             \item mark class as an inner class
+         \end{enumerate}
+
+    \subsection{private,protected,internal,public}
+            \begin{enumerate}
+                \item the default access control is public
+                \item inherit access control.
+            \end{enumerate}
+
+            \subsubsection{in top-level in file}
+                 \begin{enumerate}
+                    \item public: can access every one
+                    \item private: can access only in file
+                    \item internal: can access in the same module
+                    \item protected: illegal
+                 \end{enumerate}
+            \subsubsection{in class,interface}
+                \begin{enumerate}
+                    \item private: can access only in this class
+                    \item protected: access int this class and it's subclass
+                    \item internal: can access the internal member of which class it can see 
+                    \item public: can access the member of which class it can see
+                \end{enumerate}
+                
 \newpage
 \section{doc}
     \subsection{fun call}

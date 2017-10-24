@@ -3,19 +3,28 @@ import com.learnwy.kotlin.annotation.Type
 @Type("class")
 class Main {
     @Type("property")
-    var m: String = "m";
+    var m: String = "m"
+            // set(value) {
+            // this.m = value;
+            // }
+        get() = this.m
+    var s: String
+        get() {
+            return s;
+        }
+        set(value) {};
 
-    @Type("contructor") constructor(@Type("param") args: Array<String>) {
+    @Type("constructor") constructor(@Type("param") args: Array<String>) {
         main(args);
     }
 
     @Type("function")
-    fun main(@Type("argrument") args: Array<String>) {
-        console.log(Main::class);
+    fun main(@Type("argument") args: Array<String>) {
+        console.log(Main::class, args);
     }
 }
 
 @Type("function")
 fun main(args: Array<String>) {
-    var m: Main = Main(args);
+    Main(args);
 }
