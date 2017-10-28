@@ -4,12 +4,14 @@ const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+console.log('start webpack');
+
 module.exports = {
   entry: { app: 'app.js' },
   devtool: 'source-map',
   output: {
-    filename: '[name].min.js',
-    chunkFilename: '[name].min.js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     path: 'dist'
   },
   module: {

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.learnwy</groupId>
+    <artifactId>kotlin.learnwyJava</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>com.learnwy kotlin.learnwyJava</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <kotlin.version>1.1.51</kotlin.version>
+        <junit.version>4.12</junit.version>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <url>http://nexus.saas.hand-china.com/content/repositories/central/</url>
+            <name>hand-central</name>
+            <id>hand-central</id>
+        </repository>
+        <repository>
+            <name>Central Repository</name>
+            <id>mvnCentralRepository</id>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <name>spring.io</name>
+            <id>springIO</id>
+            <url>http://repo.spring.io/libs-milestone/</url>
+        </repository>
+        <repository>
+            <url>http://repo.spring.io/plugins-release/</url>
+            <name>spring-plugin</name>
+            <id>springIOPlugin</id>
+        </repository>
+        <repository>
+            <name>sonatype</name>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+            <name>jboss</name>
+            <id>jboss-maven2-release-repository</id>
+        </repository>
+        <repository>
+            <url>https://repository.apache.org/content/repositories/releases/</url>
+            <name>apache</name>
+            <id>apache</id>
+        </repository>
+        <repository>
+            <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public-releases/</url>
+            <name>nuxeo</name>
+            <id>nuxeo</id>
+        </repository>
+    </repositories>
+
+</project>

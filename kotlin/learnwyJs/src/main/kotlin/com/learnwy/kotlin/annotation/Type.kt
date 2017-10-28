@@ -15,5 +15,5 @@ package com.learnwy.kotlin.annotation
         AnnotationTarget.TYPE_PARAMETER,
         AnnotationTarget.FILE,
         AnnotationTarget.VALUE_PARAMETER)
-@Retention(AnnotationRetention.SOURCE)
+@Retention(AnnotationRetention.RUNTIME)
 annotation class Type(val type: String);
