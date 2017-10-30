@@ -24,6 +24,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <kotlin.version>1.1.51</kotlin.version>
+        <spring-boot.version>2.0.0 M5</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -31,18 +32,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.mybatis.spring.boot</groupId>-->
-        <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-        <!--<version>1.3.1</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -54,13 +50,6 @@
             <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -71,24 +60,36 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jre8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-        <!--spring boot redis session-->
+
+        <!-- configuration:get applicatioin.properties -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-redis</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <!--<version>${spring-boot.version}</version>-->
         </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-        </dependency>
-        <!--spring boot redis session-->
-
-
+        <!-- configuration -->
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -132,6 +133,109 @@
     </build>
 
     <repositories>
+        <!--hand-->
+        <repository>
+            <id>hand-central</id>
+            <name>hand-central</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/central/</url>
+        </repository>
+        <repository>
+            <id>hand-public</id>
+            <name>hand-public</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/public/</url>
+        </repository>
+        <repository>
+            <id>hand-rdc</id>
+            <name>hand-rdc</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
+        </repository>
+        <repository>
+            <id>hand-snapshot-repository</id>
+            <name>Hand Snapshot Repository</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdcsnapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>hand-release-repository</id>
+            <name>Hand Release Repository</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
+        </repository>
+
+        <!--hand-->
+        <!--mvn-->
+        <repository>
+            <name>mvn-central</name>
+            <id>mvn-central</id>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+        <!--mvn-->
+        <!--sonatype-->
+        <repository>
+            <name>sonatype</name>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <!--sonatype-->
+        <!--spring-->
+        <repository>
+            <name>spring-plugin</name>
+            <id>spring-plugin</id>
+            <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+        <repository>
+            <name>spring-libs</name>
+            <id>spring-libs</id>
+            <url>http://repo.spring.io/libs-milestone/</url>
+        </repository>
+        <!--spring-->
+
+        <!--atlassian-->
+        <repository>
+            <name>atlassian</name>
+            <id>atlassian</id>
+            <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
+        <!--atlassian-->
+        <!--jboss-->
+        <repository>
+            <name>jboss</name>
+            <id>jboss</id>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <!--jboss-->
+
+        <!--nuxeo-->
+        <repository>
+            <name>nuxeo</name>
+            <id>nuxeo</id>
+            <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public-releases/</url>
+        </repository>
+        <!--nuxeo-->
+
+        <!--xwiki-->
+        <repository>
+            <name>xwiki</name>
+            <id>xwiki</id>
+            <url>http://maven.xwiki.org/releases/</url>
+        </repository>
+        <!--xwiki-->
+        <!--apache-->
+        <repository>
+            <name>apache</name>
+            <id>apache</id>
+            <url>https://repository.apache.org/content/repositories/releases/</url>
+        </repository>
+        <!--apache-->
+        <!--clojars-->
+        <repository>
+            <name>clojars</name>
+            <id>clojars</id>
+            <url>http://clojars.org/repo/</url>
+        </repository>
+        <!--clojars-->
+
         <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
@@ -147,53 +251,6 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
-        <repository>
-            <url>https://bintray.com/bintray/jcenter</url>
-            <name>jcenter</name>
-            <id>jcenter</id>
-        </repository>
-
-
-        <repository>
-            <url>http://nexus.saas.hand-china.com/content/repositories/central/</url>
-            <name>hand-central</name>
-            <id>hand-central</id>
-        </repository>
-        <repository>
-            <name>Central Repository</name>
-            <id>mvnCentralRepository</id>
-            <url>http://central.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <name>spring.io</name>
-            <id>springIO</id>
-            <url>http://repo.spring.io/libs-milestone/</url>
-        </repository>
-        <repository>
-            <url>http://repo.spring.io/plugins-release/</url>
-            <name>spring-plugin</name>
-            <id>springIOPlugin</id>
-        </repository>
-        <repository>
-            <name>sonatype</name>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-        <repository>
-            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-            <name>jboss</name>
-            <id>jboss-maven2-release-repository</id>
-        </repository>
-        <repository>
-            <url>https://repository.apache.org/content/repositories/releases/</url>
-            <name>apache</name>
-            <id>apache</id>
-        </repository>
-        <repository>
-            <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public-releases/</url>
-            <name>nuxeo</name>
-            <id>nuxeo</id>
         </repository>
     </repositories>
 

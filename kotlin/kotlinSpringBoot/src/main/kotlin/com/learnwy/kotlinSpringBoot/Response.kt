@@ -11,4 +11,12 @@ data class Response<T>(var success: Boolean = true, var message: String = "ok", 
         this.pages = page.totalPages;
         return this;
     }
+
+    class ResponseStatusCode {
+        companion object {
+            val OK: Int = 200;
+            val FORBIDDEN: Int = 403;
+            val NOT_FOUND: Int = 404;
+        }
+    }
 };

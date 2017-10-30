@@ -7,5 +7,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 class KotlinSpringBootApplication
 
 fun main(args: Array<String>) {
-    SpringApplication.run(KotlinSpringBootApplication::class.java, *args)
+    SpringApplication.run(KotlinSpringBootApplication::class.java, *args);
 }
