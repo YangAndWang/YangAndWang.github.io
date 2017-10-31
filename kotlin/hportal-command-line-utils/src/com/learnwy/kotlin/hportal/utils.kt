@@ -18,9 +18,9 @@ import java.nio.file.Paths
 /**
  * abc-xyz-mnt => abcXyzMnt
  */
-fun lowerCase2Hump(lowerCase: String): String {
+fun lowerCase2Hump(lowerCase: String, delimiter: String = "-"): String {
     var ret: StringBuilder = StringBuilder();
-    for (m in lowerCase.split("-")) {
+    for (m in lowerCase.split(delimiter)) {
         var cA: CharArray = m.toCharArray();
         if (cA.getOrNull(0) != null) {
             cA.set(0, cA.get(0).toUpperCase());
@@ -36,7 +36,7 @@ fun lowerCase2Hump(lowerCase: String): String {
 /**
  * abcXyzMnt => abc-xyz-mnt
  */
-fun hump2LowerCase(hump: String): String {
+fun hump2LowerCase(hump: String, delimiter: String = "-"): String {
     var ret: StringBuilder = StringBuilder();
     var charIndex: Int = 0;
     var tempIndex: Long = 0;
@@ -46,7 +46,7 @@ fun hump2LowerCase(hump: String): String {
             ret.append(s);
             charIndex += s.length;
         } else {
-            ret.append('-').append(hump.get(charIndex).toLowerCase()).append(s);
+            ret.append(delimiter).append(hump.get(charIndex).toLowerCase()).append(s);
             charIndex += s.length + 1;
         }
     }
@@ -207,8 +207,8 @@ fun gen(args: Array<String>) {
     if (args.size < 2) {
         println("参数不正确,<type> <name>,type 为portlet 和 modal");
     }
-    var type: String = args [0];
-    var name: String = args [1];
+    var type: String = args[0];
+    var name: String = args[1];
     when (type) {
         "portlet" -> genPortlet(name);
         "" -> genModal(name);
