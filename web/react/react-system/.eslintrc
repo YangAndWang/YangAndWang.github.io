@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+//  "extends": "eslint-config-airbnb/legacy",
+  "rules": {
+    "camelcase": "error",
+    "indent": [0, 2]
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  }
+}
