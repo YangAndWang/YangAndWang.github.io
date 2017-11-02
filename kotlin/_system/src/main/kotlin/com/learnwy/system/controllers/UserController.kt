@@ -1,4 +1,4 @@
-package com.learnwy.system.user.controllers
+package com.learnwy.system.controllers
 
 import com.learnwy.system.commom.FileMap
 import com.learnwy.system.commom.ResquestPage

@@ -1,6 +1,6 @@
-package com.learnwy.system.user.repositories
+package com.learnwy.system.repositories
 
-import com.learnwy.system.user.dto.User
+import com.learnwy.system.dto.User
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.CrudRepository
