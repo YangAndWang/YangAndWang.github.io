@@ -1,4 +1,4 @@
-package com.learnwy.system.example.hello
+package com.learnwy.system.examples.hello
 
 import org.junit.Before
 import org.junit.Test

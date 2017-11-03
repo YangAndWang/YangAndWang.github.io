@@ -1,4 +1,4 @@
-package com.learnwy.system.example.hello
+package com.learnwy.system.examples.hello
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

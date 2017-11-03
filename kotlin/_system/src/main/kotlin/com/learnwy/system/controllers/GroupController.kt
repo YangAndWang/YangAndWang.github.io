@@ -7,10 +7,13 @@ import com.learnwy.system.services.GroupService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import javax.servlet.http.HttpSession
 
-class GroupController { @Autowired
-lateinit var groupService: GroupService;
+@RequestMapping(path = arrayOf("/system/group"))
+class GroupController {
+    @Autowired
+    lateinit var groupService: GroupService
 
     @CrossOrigin(origins = arrayOf("*"))
     @GetMapping(path = arrayOf("/query"))

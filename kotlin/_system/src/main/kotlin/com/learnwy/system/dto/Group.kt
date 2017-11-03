@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-const val tableName = SystemConfig.PREFIX + SystemConfig.DELIMITER + "group";
+const val TABLE_NAME_GROUP = SystemConfig.PREFIX + SystemConfig.DELIMITER + "group";
 
-@Entity(name = tableName)
+@Entity(name = TABLE_NAME_GROUP)
 data class Group(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ data class Group(
         var permissionPath: Long = 7,
         var permissionFile: Long = 6,
         var description: String = "$name's group",
-        
+
 
         var createDate: Date,
         var updateDate: Date

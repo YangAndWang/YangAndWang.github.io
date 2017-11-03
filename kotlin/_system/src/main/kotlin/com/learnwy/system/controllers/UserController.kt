@@ -1,10 +1,9 @@
 package com.learnwy.system.controllers
 
-import com.learnwy.system.commom.FileMap
 import com.learnwy.system.commom.ResquestPage
 import com.learnwy.system.commom.Response
-import com.learnwy.system.user.dto.User
-import com.learnwy.system.user.services.UserService
+import com.learnwy.system.dto.User
+import com.learnwy.system.services.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpSession
