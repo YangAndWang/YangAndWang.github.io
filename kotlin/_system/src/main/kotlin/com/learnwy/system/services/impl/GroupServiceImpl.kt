@@ -15,8 +15,8 @@ class GroupServiceImpl() : GroupService {
     lateinit var groupRepository: GroupRepository;
 
     override fun selectAll(page: ResquestPage): List<Group> {
-        var pageRequest: PageRequest = PageRequest.of(page.page, page.pageSize);
-        var pages: Page<Group> = groupRepository.findAll(pageRequest);
+        val pageRequest: PageRequest = PageRequest.of(page.page, page.pageSize);
+        val pages: Page<Group> = groupRepository.findAll(pageRequest);
         page.totalPages = pages.totalPages;
         page.total = pages.numberOfElements;
         return pages.content;
