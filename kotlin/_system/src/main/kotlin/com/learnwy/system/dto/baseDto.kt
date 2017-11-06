@@ -1,9 +1,9 @@
 package com.learnwy.system.dto
 
+import org.hibernate.mapping.Table
 import javax.persistence.Column
 
 open class baseDto {
-    @Column
     lateinit var attribute1: String;
     lateinit var attribute2: String;
     lateinit var attribute3: String;

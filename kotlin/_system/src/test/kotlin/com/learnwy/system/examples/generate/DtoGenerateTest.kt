@@ -8,6 +8,7 @@ import com.learnwy.system.commom.utils.Generator.Companion.genCreateSql
 import com.learnwy.system.commom.utils.Generator.Companion.genDtoCode
 import com.learnwy.system.commom.utils.Generator.Companion.genRepository
 import com.learnwy.system.commom.utils.Generator.Companion.genService
+import com.learnwy.system.commom.utils.Generator.Companion.genServiceImpl
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -16,9 +17,9 @@ class DtoGenerateTest {
     @Test
     fun createAll() {
         val tableInfo: TableInfo = TableInfo();
-        tableInfo.tableName = "file";
+        tableInfo.tableName = "path";
         tableInfo.columns.add(ColumnInfo.ID)
-        tableInfo.columns.add(ColumnInfo.NAME)
+        tableInfo.columns.add(ColumnInfo.NAME.copy(updatable = false))
         tableInfo.columns.add(ColumnInfo("description", ColumnInfo.ColumnType.STRING, maxLen = 1024))
         tableInfo.columns.add(ColumnInfo("displayName", ColumnInfo.ColumnType.STRING, maxLen = 1024, comment = "is displayName is null,the name will use"))
         tableInfo.columns.add(ColumnInfo("userPermission", ColumnInfo.ColumnType.LONG, comment = "user permission"))
@@ -31,6 +32,7 @@ class DtoGenerateTest {
         print(genRepository(tableInfo, generateInfo))
         print(genController(tableInfo, generateInfo))
         print(genService(tableInfo, generateInfo))
+        print(genServiceImpl(tableInfo, generateInfo))
         print(genCreateSql(tableInfo));
     }
 }
