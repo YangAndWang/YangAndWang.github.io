@@ -12,7 +12,6 @@ class MvcConfig : WebMvcConfigurer {
     }
 
     override fun addInterceptors(registry: InterceptorRegistry?) {
-        super.addInterceptors(registry)
         registry?.addInterceptor(RoleInterceptor())?.addPathPatterns("/**");
         super.addInterceptors(registry)
     }

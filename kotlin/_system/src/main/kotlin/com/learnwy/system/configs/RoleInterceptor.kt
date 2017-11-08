@@ -16,6 +16,7 @@ class RoleInterceptor : HandlerInterceptorAdapter() {
      */
     @Throws(Exception::class)
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
+        request.method
         logger.info("access ${request.requestURI}")
         request.requestURI
         return true

@@ -1,0 +1,32 @@
+{
+  "name": "learnwy_system",
+  "version": "1.0.0",
+  "description": "system use nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "eslint"
+  },
+  "keywords": [
+    "learnwy"
+  ],
+  "author": "wy",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-strict-mode": "^6.24.1",
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11",
+    "koa2": "^2.0.0-alpha.7"
+  },
+  "dependencies": {
+    "url": "^0.11.0"
+  }
+}
