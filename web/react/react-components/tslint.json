@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ]
+  }
+}
