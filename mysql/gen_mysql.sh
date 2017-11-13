@@ -14,11 +14,11 @@ echo -e "#!/bin/bash\n\
 #######################\n\
 # 启动mysql ${port}\n\
 ######################\n\
-mysqld_safe --defaults-file=/learnwy/app/etc/my-${port}.cnf & " > /learnwy/app/script/mysql-${port}.sh
+mysqld_safe --defaults-file=/learnwy/etc/my-${port}.cnf & " > /learnwy/scripts/mysql-${port}.sh
 
 echo -e "\
 #!/bin/bash\n
-mysql -uroot -P${port} -p --socket=/tmp/mysql-${port}.sock" > /learnwy/app/script/mysql-cli-${port}.sh
+mysql -uroot -P${port} -p --socket=/tmp/mysql-${port}.sock" > /learnwy/scripts/mysql-cli-${port}.sh
 
 
 echo -e "\
@@ -33,13 +33,13 @@ user=mysql\n\
 \n\
 [client]\n\
 port=${port}\n\
-socket=/tmp/mysql-${port}.sock" > /learnwy/app/etc/my-${port}.cnf
+socket=/tmp/mysql-${port}.sock" > /learnwy/etc/my-${port}.cnf
 echo chown
 sudo chown -R mysql /learnwy/data/mysql-${port}
 #sudo chown -R mysql /learnwy/data
 #sudo chmod -R g+rwx /learnwy/data/mysql-${port}
-sudo chmod u+x mysql-${port}.sh
-sudo chmod u+x mysql-cli-${port}.sh
+sudo chmod u+x /learnwy/scripts/mysql-${port}.sh
+sudo chmod u+x /learnwy/scripts/mysql-cli-${port}.sh
 
 
 export port

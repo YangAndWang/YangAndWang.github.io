@@ -26,7 +26,7 @@ const publicPath = '/'
 
 module.exports = {
     devtool: "source-map",
-    entry: {index: paths.appIndex, ...components},
+    entry: {...components, index: paths.appIndex},
     output: {
         path: path.resolve(__dirname, '../build'),
         pathinfo: true,
@@ -48,37 +48,26 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common' // Specify the common bundle's name.
+        }),
+        new ExtractTextPlugin({
+            filename: 'css/[name].css'
         })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: [
-                    {loader: 'style-loader'},
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
-                    }
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader']
+                })
             },
             {
                 test: /\.less$/,
-                use: [
-                    {loader: 'style-loader'},
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
-                    },
-                    {
-                        loader: "less-loader",
-                        options: {}
-                    }
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader']
+                })
             },
             {
                 test: /\.tsx?$/,
@@ -87,6 +76,16 @@ module.exports = {
                     {loader: 'ts-loader'}
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                exclude: /favicon\.png$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000
+                    }
+                }]
             },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.

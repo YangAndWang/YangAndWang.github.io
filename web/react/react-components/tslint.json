@@ -1,16 +1,34 @@
 {
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
   "rules": {
-    "semi": [
-      "error",
+    "ordered-imports": [
+      false
+    ],
+    "interface-name": [
+      false
+    ],
+    "jsx-self-close": false,
+    "member-access": [
+      false
+    ],
+    "semicolon": [
+      true,
       "never"
     ],
-    "comma-style": [
-      "error",
-      "last"
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
     ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ]
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "no-unused-expression": false
   }
 }
