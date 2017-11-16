@@ -1,5 +1,10 @@
-package com.learnwy.system.services
+package com.learnwy.system.services.impl
 
-interface UserService {
-    fun findUserById()
+import com.learnwy.system.pos.User
+import com.learnwy.system.services.UserService
+
+class UserServiceImpl : UserService {
+    override fun findUserById(): User? {
+        return null
+    }
 }

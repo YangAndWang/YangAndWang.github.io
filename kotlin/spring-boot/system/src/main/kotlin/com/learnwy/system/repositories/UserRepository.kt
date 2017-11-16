@@ -1,7 +1,7 @@
 package com.learnwy.system.repositories
 
-import com.learnwy.system.pos.Path
+import com.learnwy.system.pos.User
 import org.springframework.data.repository.CrudRepository
 
-interface PathRepository : CrudRepository<Path, Long> {
+interface UserRepository : CrudRepository<User, Long> {
 }
