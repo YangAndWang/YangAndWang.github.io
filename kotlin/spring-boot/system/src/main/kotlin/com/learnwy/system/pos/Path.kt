@@ -12,7 +12,7 @@ data class Path(
         var id: Long = -1L,
 
         @Column(nullable = false)
-        var path: String = "",
+        var name: String = "",
 
         @Column(nullable = false)
         var userPermission: Long = 7L,
