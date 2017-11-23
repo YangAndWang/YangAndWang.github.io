@@ -5,8 +5,8 @@ import {Layout} from 'antd'
 
 const {Header,Content,Sider,Footer} = Layout
 ReactDom.render(
-    <Layout>
-        <Header></Header>        
-    </Layout>,
+    <div>
+
+    </div>,
     document.getElementById('app')
 )
