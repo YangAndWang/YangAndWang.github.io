@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.learnwy</groupId>
+    <artifactId>SpringCloudFirst</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.M6</version> </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.0.0 M5</spring-boot.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <!--hand-->
+        <!--<repository>-->
+            <!--<id>hand-central</id>-->
+            <!--<name>hand-central</name>-->
+            <!--<url>http://nexus.saas.hand-china.com/content/repositories/central/</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>hand-public</id>-->
+            <!--<name>hand-public</name>-->
+            <!--<url>http://nexus.saas.hand-china.com/content/repositories/public/</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>hand-rdc</id>-->
+            <!--<name>hand-rdc</name>-->
+            <!--<url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>hand-snapshot-repository</id>-->
+            <!--<name>Hand Snapshot Repository</name>-->
+            <!--<url>http://nexus.saas.hand-china.com/content/repositories/rdcsnapshot/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>hand-release-repository</id>-->
+            <!--<name>Hand Release Repository</name>-->
+            <!--<url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>-->
+        <!--</repository>-->
+
+        <!--hand-->
+        <!--mvn-->
+        <repository>
+            <name>mvn-central</name>
+            <id>mvn-central</id>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+        <!--mvn-->
+        <!--sonatype-->
+        <repository>
+            <name>sonatype</name>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <!--sonatype-->
+        <!--spring-->
+        <repository>
+            <name>spring-plugin</name>
+            <id>spring-plugin</id>
+            <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+        <repository>
+            <name>spring-libs</name>
+            <id>spring-libs</id>
+            <url>http://repo.spring.io/libs-milestone/</url>
+        </repository>
+        <!--spring-->
+
+        <!--atlassian-->
+        <repository>
+            <name>atlassian</name>
+            <id>atlassian</id>
+            <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
+        <!--atlassian-->
+        <!--jboss-->
+        <repository>
+            <name>jboss</name>
+            <id>jboss</id>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <!--jboss-->
+
+        <!--nuxeo-->
+        <repository>
+            <name>nuxeo</name>
+            <id>nuxeo</id>
+            <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public-releases/</url>
+        </repository>
+        <!--nuxeo-->
+
+        <!--xwiki-->
+        <repository>
+            <name>xwiki</name>
+            <id>xwiki</id>
+            <url>http://maven.xwiki.org/releases/</url>
+        </repository>
+        <!--xwiki-->
+        <!--apache-->
+        <repository>
+            <name>apache</name>
+            <id>apache</id>
+            <url>https://repository.apache.org/content/repositories/releases/</url>
+        </repository>
+        <!--apache-->
+        <!--clojars-->
+        <repository>
+            <name>clojars</name>
+            <id>clojars</id>
+            <url>http://clojars.org/repo/</url>
+        </repository>
+        <!--clojars-->
+
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
