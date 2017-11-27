@@ -6,24 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = arrayOf("*"))
 @RequestMapping(path = arrayOf("/role"))
 class RoleController {
     @Autowired
     lateinit var roleRepository: RoleRepository
-
     @GetMapping(path = arrayOf("/query"))
     fun query(): List<Role> {
         return roleRepository.findAll() as List<Role>
     }
 
     @PutMapping(path = arrayOf("/submit"))
+    @CrossOrigin(origins = arrayOf("*"))
     fun submit(roles: MutableList<Role>): MutableList<Role> {
         return roleRepository.saveAll(roles) as MutableList<Role>
     }
 
     @GetMapping(path = arrayOf("/type"))
-    fun type() :Map<String,String>{
+    fun type(): Map<String, String> {
         return Role.toTableColumns()
     }
 

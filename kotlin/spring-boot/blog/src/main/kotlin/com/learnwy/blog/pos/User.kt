@@ -1,8 +1,10 @@
 package com.learnwy.blog.pos
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.learnwy.blog.consts.SystemConst.Companion.PREFIX
-import com.learnwy.blog.consts.SystemConst.Companion.SEPARATOR
+import com.learnwy.blog.consts.Const.Companion.PREFIX
+import com.learnwy.blog.consts.Const.Companion.SEPARATOR
+import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 import java.util.*
 import javax.persistence.*
 
@@ -17,9 +19,12 @@ data class User(
         var displayName: String? = null,
         @OneToOne
         var createUser: User? = null,
+        @CreationTimestamp
         var createDate: Date? = null,
         @OneToOne
         var updateUser: User? = null,
+        @CreationTimestamp
+        @UpdateTimestamp
         var updateDate: Date? = null,
 
         @ManyToMany(mappedBy = "users")
