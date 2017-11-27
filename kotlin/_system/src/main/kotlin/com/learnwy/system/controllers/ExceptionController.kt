@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletResponse
  * @since JDK 7.0+
  */
 @Controller
-@RequestMapping(value = "/error")
+@RequestMapping(value = "error")
 @EnableConfigurationProperties(value = ServerProperties::class)
 class ExceptionController : ErrorController {
 
@@ -85,7 +85,7 @@ class ExceptionController : ErrorController {
      */
     @RequestMapping(produces = arrayOf("text/html"), value = "500")
     fun errorHtml500(request: HttpServletRequest, response: HttpServletResponse): ModelAndView {
-        response.setStatus(getStatus(request).value())
+        response.status = getStatus(request).value()
         val model: Map<String, Any> = getErrorAttributes(request,
                 isIncludeStackTrace(request, MediaType.TEXT_HTML))
         return ModelAndView("error/500", model)
@@ -115,7 +115,7 @@ class ExceptionController : ErrorController {
      */
     protected fun isIncludeStackTrace(request: HttpServletRequest,
                                       produces: MediaType): Boolean {
-        val include: ErrorProperties.IncludeStacktrace = this.serverProperties.getError().getIncludeStacktrace()
+        val include: ErrorProperties.IncludeStacktrace = this.serverProperties.error.includeStacktrace
         if (include == ErrorProperties.IncludeStacktrace.ALWAYS) {
             return true
         }
@@ -145,7 +145,7 @@ class ExceptionController : ErrorController {
      */
     private fun getTraceParameter(request: HttpServletRequest): Boolean {
         val parameter: String = request.getParameter("trace") ?: return false
-        return !"false".equals(parameter.toLowerCase())
+        return "false" != parameter.toLowerCase()
     }
 
     /**
@@ -154,7 +154,7 @@ class ExceptionController : ErrorController {
      * @return
      */
     private fun getStatus(request: HttpServletRequest): HttpStatus {
-        val statusCode: Int = request.getAttribute("javax.servlet.error.status_code") as Int ?: return HttpStatus.INTERNAL_SERVER_ERROR
+        val statusCode: Int = request.getAttribute("javax.servlet.error.status_code") as Int? ?: return HttpStatus.INTERNAL_SERVER_ERROR
         try {
             return HttpStatus.valueOf(statusCode)
         } catch (ex: Exception) {
